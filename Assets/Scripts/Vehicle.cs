@@ -67,15 +67,20 @@ public class Vehicle : MonoBehaviour
             {
                 if (s.enabled) steeringForce += s.Force() * s.weight;
             }
+
+            // 使操控里不大于maxForce
+            steeringForce = Vector3.ClampMagnitude(steeringForce, maxForce);
+
+            // 力除以质量，求出加速度;
+            acceleration = steeringForce / mass;
+
+            // 重新从0开始计时;
+            timer = 0;
         }
+    }
 
-        // 使操控里不大于maxForce
-        steeringForce = Vector3.ClampMagnitude(steeringForce, maxForce);
 
-        // 力除以质量，求出加速度;
-        acceleration = steeringForce / mass;
-
-        // 重新从0开始计时;
-        timer = 0;
+    public virtual void Test()
+    {
     }
 }

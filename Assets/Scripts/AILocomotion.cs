@@ -10,13 +10,12 @@ public class AILocomotion : Vehicle
 
     // 角色每次移动距离
     private Vector3 moveDistance;
-
-    void Start()
+    
+    new void Start()
     {
         controller = GetComponent<CharacterController>();
         theRigidbody = GetComponent<Rigidbody>();
         moveDistance = new Vector3(0, 0, 0);
-
         base.Start();
     }
 
@@ -56,8 +55,7 @@ public class AILocomotion : Vehicle
         // 播放动画
         Play();
     }
-
-
+    
     void Play()
     {
     }

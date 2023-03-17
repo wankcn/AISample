@@ -27,15 +27,12 @@ public class SteeringForSeek : Steering
         isPlanar = m_vehicle.isPlanar;
     }
 
-    /// <summary>
-    /// 计算操控力
-    /// </summary>
-    /// <returns></returns>
+    
     public override Vector3 Force()
     {
-        // 计算预期速度
         desiredVelocity = (target.transform.position - transform.position).normalized * maxSpeed;
-        if (isPlanar) desiredVelocity.y = 0;
-        return desiredVelocity - m_vehicle.velocity;
+        if (isPlanar)
+            desiredVelocity.y = 0;
+        return (desiredVelocity - m_vehicle.velocity);
     }
 }
